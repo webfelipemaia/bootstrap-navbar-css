@@ -1,0 +1,168 @@
+/*
+* Bootstrap Menu with CSS only
+* Author: Felipe Maia
+* Github: https://github.com/webfelipemaia/bootstrap-navbar-css
+* Licensed under MIT (https://github.com/webfelipemaia/bootstrap-navbar-css/blob/master/LICENSE)
+* Version: 1.0.0
+*/
+
+@import "variables";
+@import "breakpoints";
+@import "mixins/media";
+
+// Navbar
+//
+// Provide a static navbar from which we expand to create full-width, fixed, and
+// other navbar variations.
+.navmenu {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    background-color: $main-color;
+      
+    
+    // Navbar brand
+    //
+    // Used for brand, project, or site names.
+    .navmenu-brand {
+      display: inline-block;
+      padding-top: .32rem;
+      padding-bottom: .32rem;
+      margin-right: 1rem;
+      font-size: $font-size * 1.25;
+      line-height: inherit;
+      white-space: nowrap;
+      color: $item-link-color;
+    }
+    
+    li {
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  
+  }
+  
+  // Button for toggling the navbar when in its collapsed state
+  .navmenu-toggle-label {  
+    padding: .5rem .75rem;
+    margin: 0;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: .25rem;
+    background-color: highlight($main-color,25);
+  }
+  
+  .check-toggle:focus + .navmenu-toggle-label {
+    border-color: $input-focus-color;
+    box-shadow: 0 0 0 .2rem rgba($input-focus-color,0.25);
+  }
+  
+  // Keep as a separate element so folks can easily override it with another icon
+  // or image file as needed.
+  .navmenu-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background:  $toggle-bg-url no-repeat center center;
+  
+  }
+  
+  .navmenu-wrap {
+    display: none;
+    max-height: 0;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  
+  
+  .nav-group {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    background-color: $main-color;
+  }
+  
+  .navmenu-item {
+    a {
+      display: block;
+      padding: .5rem 1rem;
+      color: $item-link-color;
+      background-color: transparent;
+  
+    }
+  }
+  // Hides the checkbox
+  input[type="checkbox"]#navmenu-btn-toggle {
+    opacity: 0;
+  }
+  
+  // Shows the menu when it is hidden on small screens
+  input[type="checkbox"]:checked ~ .navmenu-wrap {    
+    display: block;
+    max-height: initial;
+    margin-top: 0.25rem;
+  }
+  
+  // Keeps the menu responsive
+  @include md {
+  
+    .navmenu-toggler {
+      display: none;
+    }
+  
+    input[type="checkbox"]#navmenu-btn-toggle,
+    .navmenu-toggle-label {
+      display: none;
+    }
+  
+    .navmenu-wrap {
+      display: -ms-flexbox!important;
+      display: flex!important;
+      -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+    }
+  
+    .nav-group {    
+      -ms-flex-direction: row;
+      flex-direction: row;
+    }
+  
+    .nav-group .navmenu-item {
+      padding-right: .5rem;
+      padding-left: .5rem
+    }
+  
+  }
+  
+  // Keeps the menu responsive
+  @include lg {
+  
+    .navmenu-center {
+      -ms-flex-pack: center!important;
+      justify-content: center!important;
+    }
+  
+    .navmenu-right {
+      -ms-flex-pack: end!important;
+      justify-content: flex-end!important;
+    }
+  
+  }

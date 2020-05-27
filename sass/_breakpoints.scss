@@ -1,0 +1,12 @@
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm: map-get($breakpoints, sm);
+
+// Small tablets (portrait view)
+$screen-md: map-get($breakpoints, md);
+
+// Tablets and small desktops
+$screen-lg: map-get($breakpoints, lg);
+
+// Large tablets and desktops
+$screen-xl: map-get($breakpoints, xl);

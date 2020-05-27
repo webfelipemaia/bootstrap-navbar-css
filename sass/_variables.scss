@@ -1,0 +1,37 @@
+
+
+
+
+$font-family:               -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-size:                 1rem !default;
+$font-size-lg:              $font-size * 1.25 !default;
+$font-size-sm:              $font-size * .875 !default;
+
+$line-height:               1 !default;
+$line-height-lg:            1.5 !default;
+$line-height-sm:            1.5 !default;
+
+$main-color: #004b88 !default;
+$input-focus-color: lighten($main-color,65%);
+
+$toggle-bg-url: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'><path stroke='rgba(0,0,0,.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+
+$item-link-color: #ffffff;
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) ;
+
+
+@function highlight($color, $amount, $threshold: 50%){
+    @if lightness($color) > $threshold{
+      @return darken($color, $amount);
+    }
+    @if lightness($color) <= $threshold{
+      @return lighten($color, $amount);
+    }
+    @return $color;
+  }
